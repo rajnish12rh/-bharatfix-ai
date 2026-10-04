@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: bharatfix-ai-api
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: MONGODB_URI
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_MODEL
+        value: gemini-2.5-flash
+      - key: ADMIN_KEY
+        sync: false
+      - key: CLIENT_URL
+        sync: false
